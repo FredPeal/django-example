@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form para crear</title>
+</head>
+<body>
+    <h1>{{ title|default:'Crear nueva materia' }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" value="{{ item.nombre|default:''}}"><br>
+        <label for="codigo">Código</label>
+        <input type="text" name="codigo" value="{{ item.codigo|default:''}}"><br>
+        <input type="submit" value="{{ btnText|default:'Crear'}}">
+    </form>
+</body>
+</html>
