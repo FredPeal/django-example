@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Lista de Materias</h1>
+    <a href="{% url 'materias_create' %}">Crear nueva materia</a>
+    <ul>
+        {% for item in items %}
+          <li>
+            {{ item.nombre }} - {{ item.codigo }} <a href="{% url 'materias_edit' item.id %}">Editar</a>
+            <a href="{% url 'materias_delete' item.id %}">Borrar</a>
+
+            <br>
+          </li>
+
+        {% endfor %}
+    </ul>
+</body>
+</html>
